@@ -14,7 +14,6 @@ const SignUpForm = () => {
 
     const[formFields,setFormFields] = useState(defaultFormFields);
     const {displayName,email,password,confirmPassword} = formFields;
-    console.log(formFields);
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormFields({ ...formFields, [name] : value });
@@ -51,7 +50,7 @@ const SignUpForm = () => {
             <FormInput  type="text" label="Display Name" required onChange={handleChange}  value={displayName} name='displayName' ></FormInput>
             <FormInput  type="email" label="Email" required onChange={handleChange}  value={email} name='email' ></FormInput>
             <FormInput type="password" label="password" required onChange={handleChange}  value={password} name='password' ></FormInput>
-            <FormInput type="password" label="password" required onChange={handleChange}  value={confirmPassword} name='confirmPassword' ></FormInput>
+            <FormInput type="password" label="Confirm password" required onChange={handleChange}  value={confirmPassword} name='confirmPassword' ></FormInput>
             <Button type="submit">Sign Up</Button>
             </form>
         </div>

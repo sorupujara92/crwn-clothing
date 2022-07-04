@@ -8,7 +8,6 @@ class Directory extends Component {
         return (
             <div className="directory-container">
                 { categories.map((category) => {
-                   console.log({category})
                    return <CategoryItem id={category.id} category={category}/>
                 })}
             </div>
