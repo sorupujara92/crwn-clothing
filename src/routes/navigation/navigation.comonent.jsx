@@ -20,7 +20,7 @@ const Navigation = () => {
     return (
       <Fragment>
         <div className="navigation">
-        <Link className="nav-link" to='/'>
+        <Link className="logo-container" to='/'>
                 <CrownLogo className="logo"/>
           </Link>
           <div className="nav-links-container">
@@ -35,7 +35,7 @@ const Navigation = () => {
         <CartIcon></CartIcon>
           
           </div>
-          { isCartOpen && <CartDropdown></CartDropdown> }
+          { isCartOpen && <CartDropdown /> }
           </div>
         <Outlet></Outlet>
       </Fragment>
