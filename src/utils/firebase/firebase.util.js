@@ -2,13 +2,18 @@
 import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged } from 'firebase/auth'
-import {doc, getDoc, setDoc,getFirestore} from 'firebase/firestore'
+import {doc, getDoc, setDoc,getFirestore,collection,writeBatch,query,getDocs} from 'firebase/firestore'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-
+  apiKey: "AIzaSyCM0vIuyxLaRROLa1LJzlrYz3Px6JRV8Fs",
+  authDomain: "crwn-clothing-db-7671c.firebaseapp.com",
+  projectId: "crwn-clothing-db-7671c",
+  storageBucket: "crwn-clothing-db-7671c.appspot.com",
+  messagingSenderId: "378619029115",
+  appId: "1:378619029115:web:aa8345b44d2cb6666ae4de"
 };
 
 // Initialize Firebase
@@ -66,3 +71,29 @@ export const signOutUser = async () => {
 export const onAuthStateChangedListener = (callback) => {
     return onAuthStateChanged(auth,callback);
 };
+
+export const addCollectionAndDocuments = async (collectionKey,objectsToAdd) => {
+    const collectionRef = collection(db,collectionKey);
+    const batch = writeBatch(db);
+    objectsToAdd.forEach((object) => {
+        
+        const docRef = doc(collectionRef,object.title.toLowerCase());
+        batch.set(docRef,object);
+    });
+    await batch.commit();
+    console.log('done');
+}
+
+export const getCategoriesAndDocuments = async () => {
+    const collectionRef = collection(db, 'categories');
+    const q = query(collectionRef);
+  
+    const querySnapshot = await getDocs(q);
+    const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+      const { title, items } = docSnapshot.data();
+      acc[title.toLowerCase()] = items;
+      return acc;
+    }, {});
+    
+    return categoryMap;
+  };
