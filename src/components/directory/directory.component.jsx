@@ -1,5 +1,5 @@
 import { Component } from "react";
-import CategoryItem from "../category-item/category-item.component";
+import DirectoryItem from "../directory-item/directory-item.component";
 import './directory.styles.scss'
 
 class Directory extends Component {
@@ -8,7 +8,7 @@ class Directory extends Component {
         return (
             <div className="directory-container">
                 { categories.map((category) => {
-                   return <CategoryItem id={category.id} category={category}/>
+                   return <DirectoryItem id={category.id} category={category}/>
                 })}
             </div>
         );

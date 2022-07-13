@@ -5,27 +5,32 @@ const Home = ()=> {
     {
       id: 1,
       title: 'hats',
-      imageUrl: 'https://pngimg.com/uploads/hat/hat_PNG5706.png'
+      imageUrl: 'https://pngimg.com/uploads/hat/hat_PNG5706.png',
+      route : 'shop/hats'
     },
     {
       id: 2,
       title: 'jackets',
-      imageUrl: 'https://toppng.com/uploads/preview/leather-jacket-png-image-transparent-wholesale-leather-jackets-115635384045mvwuk8hjd.png'
+      imageUrl: 'https://toppng.com/uploads/preview/leather-jacket-png-image-transparent-wholesale-leather-jackets-115635384045mvwuk8hjd.png',
+      route : 'shop/jackets'
     },
     {
       id: 3,
       title: 'sneakers',
-      imageUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/sneaker-brands-1588881434.png?crop=1.00xw:1.00xh;0,0&resize=1200:*'
+      imageUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/sneaker-brands-1588881434.png?crop=1.00xw:1.00xh;0,0&resize=1200:*',
+      route : 'shop/sneakers'
     },
     {
       id: 4,
       title: 'womens',
-      imageUrl: 'https://www.forbesindia.com/media/wpower_2021/Aparna-Purohit.jpg'
+      imageUrl: 'https://www.forbesindia.com/media/wpower_2021/Aparna-Purohit.jpg',
+      route : 'shop/womens'
     },
     {
       id: 5,
       title: 'mens',
-      imageUrl: 'https://m.media-amazon.com/images/I/71vp8Lec9JL._UX466_.jpg'
+      imageUrl: 'https://m.media-amazon.com/images/I/71vp8Lec9JL._UX466_.jpg',
+      route : 'shop/mens'
     }
   ]
   return (
