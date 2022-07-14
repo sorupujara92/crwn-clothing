@@ -1,6 +1,6 @@
 # Crwn Clothing
 
-E-commerce base website with firebase integrated.
+E-commerce base code which can be used as a reference to build full fledge website. Used Firebase as database to store producs / categories.
 
 # What you can do
 
@@ -18,6 +18,4 @@ E-commerce base website with firebase integrated.
 # Deployed over
 
 https://quiet-tapioca-09fabf.netlify.app
-
-
 
