@@ -7,15 +7,12 @@ import { signOutUser } from "../../utils/firebase/firebase.util";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import { CartContext } from "../../contexts/cart.context";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 const Navigation = () => {
-  
-  const {currentUser,setCurrentUser}  = useContext(UserContext);
-  const {isCartOpen,setIsCartOpen} = useContext(CartContext);
-  const signOutHandler = async() => {
-    await signOutUser();
-    setCurrentUser(null);
-  }
-  console.log({currentUser});
+  const currentUser = useSelector(selectCurrentUser)
+  const { isCartOpen } = useContext(CartContext);
+
   
     return (
       <Fragment>
@@ -27,7 +24,7 @@ const Navigation = () => {
           <Link className="nav-link" to='/shop'>
                 SHOP
           </Link>
-          { currentUser ? ( <span className="nav-link" onClick={signOutHandler}> SIGN OUT</span>) :
+          { currentUser ? ( <span className="nav-link" onClick={signOutUser}> SIGN OUT</span>) :
           ( <Link className="nav-link" to='/authentication'>
             SIGN IN
           </Link>)
