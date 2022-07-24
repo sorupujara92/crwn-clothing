@@ -3,7 +3,6 @@ import { createAuthUserWithEmailAndPassword,createUserDocumentFromAuth } from ".
 import FormInput from "../form-input/form-input.component";
 import './SignUpForm.styles.scss'
 import Button from "../button/button.component";
-import { UserContext } from "../contexts/user.context";
 const defaultFormFields = {
     'displayName' : '',
     'email' : '',
@@ -12,7 +11,6 @@ const defaultFormFields = {
 };
 const SignUpForm = () => {
 
-    const {setCurrentUser} = useContext(UserContext);
     const[formFields,setFormFields] = useState(defaultFormFields);
     const {displayName,email,password,confirmPassword} = formFields;
     const handleChange = (event) => {

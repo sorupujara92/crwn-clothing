@@ -9,9 +9,12 @@ import { onAuthStateChangedListener,createUserDocumentFromAuth } from "./utils/f
 import { useEffect } from "react";
 import { setCurrentUser } from "./store/user/user.action";
 import { useDispatch } from "react-redux";
-
+import { setCategoriesMap } from "./store/categories/category.action";
+import { getCategoriesAndDocuments } from "./utils/firebase/firebase.util";
 const App = () => {
+
   const dispatch = useDispatch();
+
   useEffect (() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
         if(user){
